@@ -1,18 +1,2 @@
 #!/bin/bash
-f [ $# -ne 1 ]; then
-  echo "Usage: $0 <input.c>"
-  exit 1
-fi
-
-input_file="$1"
-output_file="preprocessed_${input_file}"
-
-# Run the C file through the preprocessor
-gcc -E "$input_file" -o "$output_file"
-
-if [ $? -eq 0 ]; then
-  echo "Preprocessed output saved to $output_file"
-else
-  echo "Error running the preprocessor"
-fi
-
+gcc -E "$1"
